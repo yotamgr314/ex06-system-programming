@@ -3,7 +3,7 @@
 #include "threads_utils.h"
 
 // Function executed by each thread to count even numbers
-void* count_even_numbers(void* arg) {
+void* count_even_numbers(void* arg){
     ThreadData *data = (ThreadData*)arg; // Cast argument to ThreadData structure
     data->result = 0; // Initialize the result to 0
 
