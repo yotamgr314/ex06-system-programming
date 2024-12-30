@@ -4,20 +4,23 @@
 #include "threads_utils.h"
 
 int main() {
+
     int array_size; // Variable to store the size of the array
     printf("Enter the size of the array: ");
     scanf("%d", &array_size); // Get the size of the array from the user
 
     // Validate the array size
-    if (array_size <= 0) {
+    if (array_size <= 0) 
+    {
         printf("Invalid array size. Exiting.\n");
         return 1; // Exit if the array size is invalid
     }
 
     int *array = (int *)malloc(array_size * sizeof(int)); // Dynamically allocate memory for the array
-    if (array == NULL) {
+    if (array == NULL) 
+    {
         printf("Memory allocation failed. Exiting.\n");
-        return 1; // Exit if memory allocation fails
+        return 1; 
     }
 
     // Populate the array with user input
@@ -48,8 +51,9 @@ int main() {
         threadData[i].array = array; // Assign the array to the thread's data
         threadData[i].start = i * chunk_size; // Calculate the start index
 
-        // Calculate the end index using simple if-else
-        if (i == num_threads - 1) {
+        // Calculate the end index
+        if (i == num_threads - 1)
+        {
             threadData[i].end = array_size; // Last thread gets the remaining elements
         } else {
             threadData[i].end = (i + 1) * chunk_size; // Other threads get their chunk size
